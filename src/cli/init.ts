@@ -101,9 +101,24 @@ export async function init() {
     );
 
     spinner.succeed(chalk.green('Setup complete!'));
+    
+    // Auto-install dependencies
+    console.log(chalk.dim('\nInstalling dependencies...'));
+    const { execSync } = await import('child_process');
+    
+    try {
+      execSync('npm install clsx tailwind-merge', { 
+        stdio: 'inherit',
+        cwd: process.cwd()
+      });
+      console.log(chalk.green('✓ Dependencies installed!'));
+    } catch (error) {
+      console.log(chalk.yellow('⚠ Failed to auto-install dependencies'));
+      console.log(chalk.dim('Please run: npm install clsx tailwind-merge'));
+    }
+    
     console.log(chalk.dim('\nNext steps:'));
-    console.log(chalk.dim('  1. Install dependencies: npm install clsx tailwind-merge'));
-    console.log(chalk.dim('  2. Add components: npx react-neu add button'));
+    console.log(chalk.dim('  Add components: npx react-neu add button'));
   } catch (error) {
     spinner.fail(chalk.red('Setup failed'));
     console.error(error);
