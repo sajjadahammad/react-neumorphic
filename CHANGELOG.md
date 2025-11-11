@@ -1,3 +1,10 @@
+## [1.0.6](https://github.com/sajjadahammad/react-neumorphic/compare/v1.0.5...v1.0.6) (2025-11-11)
+
+### Bug Fixes
+
+* name change in package.json ([04a6ced](https://github.com/sajjadahammad/react-neumorphic/commit/04a6ced82c7f832a7c5abd86dd71cc71d6cca81c))
+* taiwlidn style updae ([1c3f6be](https://github.com/sajjadahammad/react-neumorphic/commit/1c3f6bed9f7689368c33d20f8f98a088b7537472))
+
 ## [1.0.5](https://github.com/sajjadahammad/react-neumorphic/compare/v1.0.4...v1.0.5) (2025-11-11)
 
 ### Bug Fixes
