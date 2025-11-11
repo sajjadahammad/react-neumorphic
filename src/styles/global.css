@@ -1,0 +1,22 @@
+@import "tailwindcss";
+
+/* Neumorphic Shadows */
+.shadow-neu {
+  box-shadow: 8px 8px 16px hsl(220 30% 85%), -8px -8px 16px hsl(0 0% 100%);
+}
+.shadow-neu-inset {
+  box-shadow: inset 8px 8px 16px hsl(220 30% 85%), inset -8px -8px 16px hsl(0 0% 100%);
+}
+.shadow-neu-pressed {
+  box-shadow: inset 4px 4px 8px hsl(220 30% 85%), inset -4px -4px 8px hsl(0 0% 100%);
+}
+
+.dark .shadow-neu {
+  box-shadow: 8px 8px 16px hsl(220 30% 10%), -8px -8px 16px hsl(220 30% 20%);
+}
+.dark .shadow-neu-inset {
+  box-shadow: inset 8px 8px 16px hsl(220 30% 10%), inset -8px -8px 16px hsl(220 30% 20%);
+}
+.dark .shadow-neu-pressed {
+  box-shadow: inset 4px 4px 8px hsl(220 30% 10%), inset -4px -4px 8px hsl(220 30% 20%);
+}
