@@ -9,10 +9,11 @@ export default defineConfig({
   },
   format: ['esm'],
   dts: true,
-  splitting: true,
+  splitting: false,
   sourcemap: true,
   clean: true,
-  minify: true,
+  minify: false,
+  shims: true,
   external: ['react', 'react-dom'],
   async onSuccess() {
     const { copy } = await import('fs-extra');
