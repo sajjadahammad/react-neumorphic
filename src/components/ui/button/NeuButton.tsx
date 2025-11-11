@@ -18,8 +18,8 @@ export const NeuButton = React.forwardRef<HTMLButtonElement, NeuButtonProps>(
         ref={ref}
         className={cn(
           'px-6 py-3 rounded-2xl font-medium transition-all duration-200',
-          'bg-linear-to-br from-gray-50 to-gray-100 text-gray-800',
-          'dark:from-gray-800 dark:to-gray-900 dark:text-gray-100',
+          variant !== 'glass' && 'bg-gradient-to-br from-gray-50 to-gray-100 text-gray-800',
+          variant !== 'glass' && 'dark:from-gray-800 dark:to-gray-900 dark:text-gray-100',
           variants[variant],
           className
         )}

@@ -4,12 +4,11 @@ import tailwindcss from '@tailwindcss/vite';
 
 const config: StorybookConfig = {
   stories: ['../src/**/*.stories.@(ts|tsx)'],
-  addons: [
-    '@storybook/addon-essentials',
-    '@storybook/addon-interactions',
-    '@storybook/addon-links',
-  ],
+  addons: [],
   framework: '@storybook/react-vite',
+  docs: {
+    autodocs: 'tag',
+  },
   async viteFinal(config) {
     return mergeConfig(config, {
       plugins: [tailwindcss()],

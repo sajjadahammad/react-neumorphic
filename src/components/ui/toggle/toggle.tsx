@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { cn } from '@/lib/utils';
+import { cn } from '../../../lib/utils';
 
 interface toggleProps extends React.HTMLAttributes<HTMLDivElement> {}
 
@@ -8,7 +8,7 @@ export const toggle = React.forwardRef<HTMLDivElement, toggleProps>(
     return (
       <div
         ref={ref}
-        className={cn('p-4 rounded-xl shadow-neu bg-linear-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900', className)}
+        className={cn('p-4 rounded-xl shadow-neu bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900', className)}
         {...props}
       />
     );

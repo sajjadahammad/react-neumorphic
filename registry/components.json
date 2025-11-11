@@ -1,0 +1,32 @@
+{
+  "components": {
+    "button": {
+      "name": "NeuButton",
+      "files": [
+        {
+          "path": "components/ui/button/NeuButton.tsx",
+          "type": "component"
+        },
+        {
+          "path": "components/ui/button/index.ts",
+          "type": "export"
+        }
+      ],
+      "dependencies": ["clsx", "tailwind-merge"]
+    },
+    "card": {
+      "name": "NeuCard",
+      "files": [
+        {
+          "path": "components/ui/card/NeuCard.tsx",
+          "type": "component"
+        },
+        {
+          "path": "components/ui/card/index.ts",
+          "type": "export"
+        }
+      ],
+      "dependencies": ["clsx", "tailwind-merge"]
+    }
+  }
+}
