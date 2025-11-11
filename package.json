@@ -7,7 +7,8 @@
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "files": [
-    "dist"
+    "dist",
+    "README.md"
   ],
   "bin": {
     "neu": "./dist/cli/index.js"
@@ -18,7 +19,8 @@
     "build-storybook": "storybook build",
     "add": "tsx src/cli/add-component.ts",
     "docs": "storybook dev -p 6006",
-    "docs:build": "storybook build"
+    "docs:build": "storybook build",
+    "prepublishOnly": "npm run build"
   },
   "exports": {
     ".": {
