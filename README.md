@@ -12,13 +12,9 @@ A beautiful neumorphic UI component library for React with Tailwind CSS.
 - ♿ Accessible components
 - 🎭 Storybook documentation
 
-## Installation
-
-```bash
-npm install react-neumorphic
-```
-
 ## Quick Start
+
+No installation required! Use `npx` to get started:
 
 ### 1. Initialize in your project
 
@@ -66,6 +62,21 @@ function App() {
     </div>
   );
 }
+```
+
+## Alternative: Install as Package
+
+If you prefer to use components directly without copying source code:
+
+```bash
+npm install react-neumorphic
+```
+
+Then import:
+
+```tsx
+import { NeuButton } from 'react-neumorphic';
+import 'react-neumorphic/styles';
 ```
 
 ## Available Components
