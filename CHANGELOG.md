@@ -1,3 +1,9 @@
+## [1.0.8](https://github.com/sajjadahammad/react-neumorphic/compare/v1.0.7...v1.0.8) (2025-11-11)
+
+### Bug Fixes
+
+* cli changes ([3afe827](https://github.com/sajjadahammad/react-neumorphic/commit/3afe827bd831cab72d8b5312cf7aee36432413e3))
+
 ## [1.0.7](https://github.com/sajjadahammad/react-neumorphic/compare/v1.0.6...v1.0.7) (2025-11-11)
 
 ### Bug Fixes
