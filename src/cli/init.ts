@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-import { program } from 'commander';
 import chalk from 'chalk';
 import prompts from 'prompts';
 import ora from 'ora';
@@ -38,84 +36,79 @@ const cssTemplate = `@import "tailwindcss";
 }
 `;
 
-program
-  .name('react-neu init')
-  .description('Initialize react-neumorphic in your project')
-  .action(async () => {
-    console.log(chalk.bold.cyan('\\n🎨 React Neumorphic Setup\\n'));
+export async function init() {
+  console.log(chalk.bold.cyan('\n🎨 React Neumorphic Setup\n'));
 
-    const response = await prompts([
-      {
-        type: 'text',
-        name: 'componentsPath',
-        message: 'Where would you like to install components?',
-        initial: './src/components',
-      },
-      {
-        type: 'text',
-        name: 'utilsPath',
-        message: 'Where would you like to install utils?',
-        initial: './src/lib',
-      },
-      {
-        type: 'text',
-        name: 'cssPath',
-        message: 'Where is your global CSS file?',
-        initial: './src/index.css',
-      },
-    ]);
+  const response = await prompts([
+    {
+      type: 'text',
+      name: 'componentsPath',
+      message: 'Where would you like to install components?',
+      initial: './src/components',
+    },
+    {
+      type: 'text',
+      name: 'utilsPath',
+      message: 'Where would you like to install utils?',
+      initial: './src/lib',
+    },
+    {
+      type: 'text',
+      name: 'cssPath',
+      message: 'Where is your global CSS file?',
+      initial: './src/index.css',
+    },
+  ]);
 
-    if (!response.componentsPath) {
-      console.log(chalk.red('Setup cancelled'));
-      process.exit(0);
+  if (!response.componentsPath) {
+    console.log(chalk.red('Setup cancelled'));
+    process.exit(0);
+  }
+
+  const spinner = ora('Setting up...').start();
+
+  try {
+    // Create directories
+    await fs.ensureDir(path.join(process.cwd(), response.componentsPath, 'ui'));
+    await fs.ensureDir(path.join(process.cwd(), response.utilsPath));
+
+    // Create utils file
+    const utilsFile = path.join(process.cwd(), response.utilsPath, 'utils.ts');
+    if (!(await fs.pathExists(utilsFile))) {
+      await fs.writeFile(utilsFile, utilsTemplate);
     }
 
-    const spinner = ora('Setting up...').start();
-
-    try {
-      // Create directories
-      await fs.ensureDir(path.join(process.cwd(), response.componentsPath, 'ui'));
-      await fs.ensureDir(path.join(process.cwd(), response.utilsPath));
-
-      // Create utils file
-      const utilsFile = path.join(process.cwd(), response.utilsPath, 'utils.ts');
-      if (!(await fs.pathExists(utilsFile))) {
-        await fs.writeFile(utilsFile, utilsTemplate);
+    // Update or create CSS file
+    const cssFile = path.join(process.cwd(), response.cssPath);
+    if (await fs.pathExists(cssFile)) {
+      const existingCss = await fs.readFile(cssFile, 'utf-8');
+      if (!existingCss.includes('shadow-neu')) {
+        await fs.appendFile(cssFile, '\n' + cssTemplate);
       }
-
-      // Update or create CSS file
-      const cssFile = path.join(process.cwd(), response.cssPath);
-      if (await fs.pathExists(cssFile)) {
-        const existingCss = await fs.readFile(cssFile, 'utf-8');
-        if (!existingCss.includes('shadow-neu')) {
-          await fs.appendFile(cssFile, '\\n' + cssTemplate);
-        }
-      } else {
-        await fs.writeFile(cssFile, cssTemplate);
-      }
-
-      // Create config file
-      const config = {
-        componentsPath: response.componentsPath,
-        utilsPath: response.utilsPath,
-        cssPath: response.cssPath,
-      };
-      await fs.writeFile(
-        path.join(process.cwd(), 'neu.config.json'),
-        JSON.stringify(config, null, 2)
-      );
-
-      spinner.succeed(chalk.green('Setup complete!'));
-      console.log(chalk.dim('\\nNext steps:'));
-      console.log(chalk.dim('  1. Install dependencies: npm install clsx tailwind-merge'));
-      console.log(chalk.dim('  2. Add components: npx react-neu add button'));
-    } catch (error) {
-      spinner.fail(chalk.red('Setup failed'));
-      console.error(error);
-      process.exit(1);
+    } else {
+      await fs.writeFile(cssFile, cssTemplate);
     }
-  });
 
-program.parse();
+    // Create config file
+    const config = {
+      componentsPath: response.componentsPath,
+      utilsPath: response.utilsPath,
+      cssPath: response.cssPath,
+    };
+    await fs.writeFile(
+      path.join(process.cwd(), 'neu.config.json'),
+      JSON.stringify(config, null, 2)
+    );
 
-export default program;
+    spinner.succeed(chalk.green('Setup complete!'));
+    console.log(chalk.dim('\nNext steps:'));
+    console.log(chalk.dim('  1. Install dependencies: npm install clsx tailwind-merge'));
+    console.log(chalk.dim('  2. Add components: npx react-neu add button'));
+  } catch (error) {
+    spinner.fail(chalk.red('Setup failed'));
+    console.error(error);
+    process.exit(1);
+  }
+}
+
+init();

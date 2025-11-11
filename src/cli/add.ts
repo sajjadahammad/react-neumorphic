@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-import { program } from 'commander';
 import chalk from 'chalk';
 import ora from 'ora';
 import fs from 'fs-extra';
@@ -14,35 +12,32 @@ async function getConfig() {
   return fs.readJson(configPath);
 }
 
-program
-  .name('react-neu add')
-  .description('Add a component to your project')
-  .argument('<component>', 'Component name (e.g., button, card)')
-  .action(async (componentName: string) => {
-    const spinner = ora(`Adding ${chalk.cyan(componentName)}...`).start();
+export async function add(componentName: string) {
+  const spinner = ora(`Adding ${chalk.cyan(componentName)}...`).start();
 
-    try {
-      const config = await getConfig();
-      const sourcePath = path.join(process.cwd(), 'src/components/ui', componentName);
-      const targetPath = path.join(process.cwd(), config.componentsPath, 'ui', componentName);
+  try {
+    const config = await getConfig();
+    const sourcePath = path.join(process.cwd(), 'src/components/ui', componentName);
+    const targetPath = path.join(process.cwd(), config.componentsPath, 'ui', componentName);
 
-      if (!(await fs.pathExists(sourcePath))) {
-        spinner.fail(chalk.red(`Component "${componentName}" not found`));
-        console.log(chalk.dim('\\nAvailable components: button, card'));
-        process.exit(1);
-      }
-
-      await fs.copy(sourcePath, targetPath);
-
-      spinner.succeed(chalk.green(`${componentName} added successfully!`));
-      console.log(chalk.dim(`→ ${config.componentsPath}/ui/${componentName}`));
-    } catch (error) {
-      spinner.fail(chalk.red('Failed to add component'));
-      console.error(error);
+    if (!(await fs.pathExists(sourcePath))) {
+      spinner.fail(chalk.red(`Component "${componentName}" not found`));
+      console.log(chalk.dim('\nAvailable components: button, card'));
       process.exit(1);
     }
-  });
 
-program.parse();
+    await fs.copy(sourcePath, targetPath);
 
-export default program;
+    spinner.succeed(chalk.green(`${componentName} added successfully!`));
+    console.log(chalk.dim(`→ ${config.componentsPath}/ui/${componentName}`));
+  } catch (error) {
+    spinner.fail(chalk.red('Failed to add component'));
+    console.error(error);
+    process.exit(1);
+  }
+}
+
+const componentName = process.argv[2];
+if (componentName) {
+  add(componentName);
+}
