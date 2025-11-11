@@ -1,3 +1,9 @@
+## [1.0.7](https://github.com/sajjadahammad/react-neumorphic/compare/v1.0.6...v1.0.7) (2025-11-11)
+
+### Bug Fixes
+
+* contrib file ([f93aebe](https://github.com/sajjadahammad/react-neumorphic/commit/f93aebe0cc36c8d000da609f1ff4c8cec5295b40))
+
 ## [1.0.6](https://github.com/sajjadahammad/react-neumorphic/compare/v1.0.5...v1.0.6) (2025-11-11)
 
 ### Bug Fixes
