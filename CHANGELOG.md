@@ -1,3 +1,9 @@
+## [1.0.4](https://github.com/sajjadahammad/react-neumorphic/compare/v1.0.3...v1.0.4) (2025-11-11)
+
+### Bug Fixes
+
+* Merge branch 'main' of https://github.com/sajjadahammad/react-neumorphic ([7438d83](https://github.com/sajjadahammad/react-neumorphic/commit/7438d83100a57db0aabe22dd41dc9a6001445b66))
+
 ## [1.0.3](https://github.com/sajjadahammad/react-neumorphic/compare/v1.0.2...v1.0.3) (2025-11-11)
 
 ### Bug Fixes
