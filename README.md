@@ -22,23 +22,20 @@ No installation required! Use `npx` to get started:
 npx react-neu init
 ```
 
-This will prompt you for:
-- Component installation path (default: `./src/components`)
-- Utils installation path (default: `./src/lib`)
-- Global CSS file path (default: `./src/index.css`)
+This will:
+- Prompt you for component paths
+- Create utility functions
+- Add neumorphic CSS styles
+- Auto-install dependencies (clsx, tailwind-merge)
 
-### 2. Install dependencies
-
-```bash
-npm install clsx tailwind-merge
-```
-
-### 3. Add components
+### 2. Add components
 
 ```bash
 npx react-neu add button
 npx react-neu add card
 ```
+
+Components are fetched directly from GitHub and added to your project!
 
 ### 4. Use in your app
 
