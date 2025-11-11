@@ -1,5 +1,5 @@
 {
-  "name": "neu-ui",
+  "name": "react-neumorphic",
   "version": "1.0.4",
   "type": "module",
   "description": "",
@@ -8,14 +8,16 @@
   "types": "./dist/index.d.ts",
   "files": [
     "dist",
-    "README.md"
+    "README.md",
+    "CHANGELOG.md"
   ],
   "bin": {
     "react-neu": "./dist/cli/index.js"
   },
   "scripts": {
     "dev": "storybook dev -p 6006",
-    "build": "tsup && vite build",
+    "build": "tsup",
+    "build:lib": "vite build",
     "build-storybook": "storybook build",
     "add": "tsx src/cli/add-component.ts",
     "docs": "storybook dev -p 6006",
