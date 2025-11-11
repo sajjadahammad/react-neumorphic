@@ -1,3 +1,9 @@
+## [1.0.3](https://github.com/sajjadahammad/react-neumorphic/compare/v1.0.2...v1.0.3) (2025-11-11)
+
+### Bug Fixes
+
+* cli name change to neu-ui ([5276328](https://github.com/sajjadahammad/react-neumorphic/commit/52763280dd79cd05ae47bb5a52b2dfe31dda77e1))
+
 ## [1.0.2](https://github.com/sajjadahammad/react-neumorphic/compare/v1.0.1...v1.0.2) (2025-11-11)
 
 ### Bug Fixes
