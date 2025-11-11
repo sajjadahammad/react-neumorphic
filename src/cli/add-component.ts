@@ -15,7 +15,7 @@ export const ${name} = React.forwardRef<HTMLDivElement, ${name}Props>(
     return (
       <div
         ref={ref}
-        className={cn('p-4 rounded-xl shadow-neu bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900', className)}
+        className={cn('p-4 rounded-xl shadow-neu bg-linear-to-r from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900', className)}
         {...props}
       />
     );
