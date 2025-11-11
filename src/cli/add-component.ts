@@ -49,16 +49,44 @@ program
   .action(async (name: string) => {
     const spinner = ora(`Creating ${chalk.cyan(name)}...`).start();
 
-    const dir = path.join(process.cwd(), 'src/components/ui', name.toLowerCase());
-    await fs.ensureDir(dir);
+    try {
+      const dir = path.join(process.cwd(), 'src/components/ui', name.toLowerCase());
+      await fs.ensureDir(dir);
 
-    await fs.writeFile(path.join(dir, `${name}.tsx`), componentTemplate(name));
-    await fs.writeFile(path.join(dir, `${name}.stories.tsx`), storyTemplate(name));
-    await fs.writeFile(path.join(dir, 'index.ts'), `export * from './${name}';\n`);
+      // Create component files
+      await fs.writeFile(path.join(dir, `${name}.tsx`), componentTemplate(name));
+      await fs.writeFile(path.join(dir, `${name}.stories.tsx`), storyTemplate(name));
+      await fs.writeFile(path.join(dir, 'index.ts'), `export * from './${name}';\n`);
 
-    spinner.succeed(chalk.green(`${name} created!`));
-    console.log(chalk.dim(`→ src/components/ui/${name.toLowerCase()}/${name}.tsx`));
-    console.log(chalk.dim(`→ src/components/ui/${name.toLowerCase()}/${name}.stories.tsx`));
+      // Update main index.ts
+      const indexPath = path.join(process.cwd(), 'src/index.ts');
+      const exportStatement = `export * from './components/ui/${name.toLowerCase()}';`;
+      
+      if (await fs.pathExists(indexPath)) {
+        let currentContent = await fs.readFile(indexPath, 'utf-8');
+        
+        // Check if export already exists
+        if (!currentContent.includes(exportStatement)) {
+          // Ensure file ends with newline before appending
+          if (!currentContent.endsWith('\n')) {
+            currentContent += '\n';
+          }
+          await fs.writeFile(indexPath, currentContent + exportStatement + '\n');
+          spinner.text = `Adding export to index.ts...`;
+        }
+      } else {
+        await fs.writeFile(indexPath, exportStatement + '\n');
+      }
+
+      spinner.succeed(chalk.green(`${name} created!`));
+      console.log(chalk.dim(`→ src/components/ui/${name.toLowerCase()}/${name}.tsx`));
+      console.log(chalk.dim(`→ src/components/ui/${name.toLowerCase()}/${name}.stories.tsx`));
+      console.log(chalk.dim(`→ src/index.ts (updated)`));
+    } catch (error) {
+      spinner.fail(chalk.red('Failed to create component'));
+      console.error(error);
+      process.exit(1);
+    }
   });
 
 program.parse();
