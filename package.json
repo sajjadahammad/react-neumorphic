@@ -16,13 +16,13 @@
     "dev": "storybook dev -p 6006",
     "build": "tsup && vite build",
     "build-storybook": "storybook build",
-    "add": "ts-node src/cli/add-component.ts"
+    "add": "tsx src/cli/add-component.ts"
   },
   "exports": {
     ".": {
+      "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
-      "require": "./dist/index.js",
-      "types": "./dist/index.d.ts"
+      "require": "./dist/index.js"
     },
     "./styles": "./dist/globals.css"
   },
@@ -56,6 +56,7 @@
     "@types/prompts": "^2.4.9",
     "@types/react": "^19.2.2",
     "tsup": "^8.5.0",
+    "tsx": "^4.20.6",
     "typescript": "^5.9.3"
   }
 }

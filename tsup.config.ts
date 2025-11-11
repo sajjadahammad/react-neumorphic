@@ -1,7 +1,7 @@
 import { defineConfig } from 'tsup';
 
 export default defineConfig({
-  entry: ['src/index.ts', 'src/styles/globals.css'],
+  entry: ['src/index.ts'],
   format: ['esm'],
   dts: true,
   splitting: true,
@@ -11,6 +11,6 @@ export default defineConfig({
   external: ['react', 'react-dom'],
   async onSuccess() {
     const { copy } = await import('fs-extra');
-    await copy('src/styles/globals.css', 'dist/globals.css');
+    await copy('src/styles/global.css', 'dist/globals.css');
   },
 });
