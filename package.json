@@ -1,5 +1,5 @@
 {
-  "name": "react-neumorphic",
+  "name": "neu-ui",
   "version": "1.0.1",
   "type": "module",
   "description": "",
@@ -11,7 +11,7 @@
     "README.md"
   ],
   "bin": {
-    "neu": "./dist/cli/index.js"
+    "neu-ui": "./dist/cli/index.js"
   },
   "scripts": {
     "dev": "storybook dev -p 6006",

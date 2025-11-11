@@ -39,8 +39,8 @@ const cssTemplate = `@import "tailwindcss";
 `;
 
 program
-  .name('neu init')
-  .description('Initialize react-neumorphic in your project')
+  .name('neu-ui init')
+  .description('Initialize react-neumorphic  in your project')
   .action(async () => {
     console.log(chalk.bold.cyan('\\n🎨 React Neumorphic Setup\\n'));
 

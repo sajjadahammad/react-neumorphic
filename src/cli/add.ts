@@ -8,14 +8,14 @@ import path from 'path';
 async function getConfig() {
   const configPath = path.join(process.cwd(), 'neu.config.json');
   if (!(await fs.pathExists(configPath))) {
-    console.log(chalk.red('❌ Config not found. Run: npx neu init'));
+    console.log(chalk.red('❌ Config not found. Run: npx neu-ui init'));
     process.exit(1);
   }
   return fs.readJson(configPath);
 }
 
 program
-  .name('neu add')
+  .name('neu-ui add')
   .description('Add a component to your project')
   .argument('<component>', 'Component name (e.g., button, card)')
   .action(async (componentName: string) => {
