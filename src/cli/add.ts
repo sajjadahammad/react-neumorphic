@@ -8,14 +8,14 @@ import path from 'path';
 async function getConfig() {
   const configPath = path.join(process.cwd(), 'neu.config.json');
   if (!(await fs.pathExists(configPath))) {
-    console.log(chalk.red('❌ Config not found. Run: npx neu-ui init'));
+    console.log(chalk.red('❌ Config not found. Run: npx react-neu init'));
     process.exit(1);
   }
   return fs.readJson(configPath);
 }
 
 program
-  .name('neu-ui add')
+  .name('react-neu add')
   .description('Add a component to your project')
   .argument('<component>', 'Component name (e.g., button, card)')
   .action(async (componentName: string) => {

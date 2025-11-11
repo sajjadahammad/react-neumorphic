@@ -39,8 +39,8 @@ const cssTemplate = `@import "tailwindcss";
 `;
 
 program
-  .name('neu-ui init')
-  .description('Initialize react-neumorphic  in your project')
+  .name('react-neu init')
+  .description('Initialize react-neumorphic in your project')
   .action(async () => {
     console.log(chalk.bold.cyan('\\n🎨 React Neumorphic Setup\\n'));
 
@@ -108,7 +108,7 @@ program
       spinner.succeed(chalk.green('Setup complete!'));
       console.log(chalk.dim('\\nNext steps:'));
       console.log(chalk.dim('  1. Install dependencies: npm install clsx tailwind-merge'));
-      console.log(chalk.dim('  2. Add components: npx neu add button'));
+      console.log(chalk.dim('  2. Add components: npx react-neu add button'));
     } catch (error) {
       spinner.fail(chalk.red('Setup failed'));
       console.error(error);

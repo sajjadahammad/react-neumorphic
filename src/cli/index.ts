@@ -2,9 +2,9 @@
 import { program } from 'commander';
 
 program
-  .name('neu-ui')
+  .name('react-neu')
   .description('React Neumorphic CLI')
-  .version('1.0.0');
+  .version('1.0.4');
 
 program
   .command('init')
