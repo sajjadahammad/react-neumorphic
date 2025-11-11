@@ -19,7 +19,7 @@ No installation required! Use `npx` to get started:
 ### 1. Initialize in your project
 
 ```bash
-npx neu-ui init
+npx react-neu init
 ```
 
 This will prompt you for:
@@ -36,8 +36,8 @@ npm install clsx tailwind-merge
 ### 3. Add components
 
 ```bash
-npx neu-ui add button
-npx neu-ui add card
+npx react-neu add button
+npx react-neu add card
 ```
 
 ### 4. Use in your app
@@ -57,7 +57,7 @@ function App() {
       </NeuButton>
       
       <NeuButton variant="glass">
-        Glass Button
+        Glass Button 
       </NeuButton>
     </div>
   );
@@ -69,14 +69,14 @@ function App() {
 If you prefer to use components directly without copying source code:
 
 ```bash
-npm install neu-ui
+npm install react-neumorphic
 ```
 
 Then import:
 
 ```tsx
-import { NeuButton } from 'neu-ui';
-import 'neu-ui/styles';
+import { NeuButton } from 'react-neumorphic';
+import 'react-neumorphic/styles';
 ```
 
 ## Available Components
@@ -91,7 +91,7 @@ For shorter commands, you can create an alias:
 
 ```bash
 # Add to your ~/.bashrc or ~/.zshrc
-alias neu="npx neu-ui"
+alias neu="npx react-neu"
 
 # Then use:
 neu init
