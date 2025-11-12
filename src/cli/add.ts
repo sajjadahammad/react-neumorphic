@@ -83,12 +83,10 @@ export async function add(componentName: string) {
       }
     }
 
-    // Create index.ts for clean imports
-    const indexContent = `export * from './${component.file.replace('.tsx', '')}';\n`;
-    await fs.writeFile(path.join(targetDir, 'index.ts'), indexContent);
-
     spinner.succeed(chalk.green(`${componentName} added successfully!`));
     console.log(chalk.dim(`→ ${config.componentsPath}/ui/${componentName}/${component.file}`));
+    console.log(chalk.dim(`\nImport with:`));
+    console.log(chalk.cyan(`  import { ${component.name} } from '@/components/ui/${componentName}/${component.file.replace('.tsx', '')}';`));
   } catch (error) {
     spinner.fail(chalk.red('Failed to add component'));
     console.error(error);
