@@ -19,23 +19,38 @@ No installation required! Use `npx` to get started:
 ### 1. Initialize in your project
 
 ```bash
-npx react-neu init
+npx react-neumorphic init
 ```
 
 This will:
-- Prompt you for component paths
-- Create utility functions
-- Add neumorphic CSS styles
+- Prompt you for component paths (components, utils, CSS)
+- Create utility functions (`cn` helper)
+- Add neumorphic CSS styles with shadow utilities
 - Auto-install dependencies (clsx, tailwind-merge)
+- Create `neu.config.json` for CLI configuration
 
 ### 2. Add components
 
 ```bash
-npx react-neu add button
-npx react-neu add card
+npx react-neumorphic add button
+npx react-neumorphic add card
 ```
 
 Components are fetched directly from GitHub and added to your project!
+
+**Available components:**
+- `button` - Neumorphic button with variants (default, soft, glass)
+- `card` - Neumorphic card component
+- `badge` - Badge component
+
+### Alternative: Shorter Command (After First Use)
+
+Once npx has cached the package, you can use the shorter alias:
+
+```bash
+npx react-neu init
+npx react-neu add button
+```
 
 ### 4. Use in your app
 
