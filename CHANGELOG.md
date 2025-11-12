@@ -1,3 +1,9 @@
+## [1.0.12](https://github.com/sajjadahammad/react-neumorphic/compare/v1.0.11...v1.0.12) (2025-11-12)
+
+### Bug Fixes
+
+* import file change ([101fd60](https://github.com/sajjadahammad/react-neumorphic/commit/101fd601ee90b27a9bf79d60bc8476e9fc33f771))
+
 ## [1.0.11](https://github.com/sajjadahammad/react-neumorphic/compare/v1.0.10...v1.0.11) (2025-11-11)
 
 ### Bug Fixes
