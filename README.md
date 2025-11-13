@@ -1,16 +1,17 @@
-# React Neumorphic
+# React Neumorphic UI
 
-A beautiful neumorphic UI component library for React with Tailwind CSS.
+A modern neumorphic UI component library for React with shadcn-inspired CLI. Copy components directly into your project - no dependencies, full customization.
 
-## Features
+## ✨ Features
 
-- 🎨 Beautiful neumorphic design
-- ⚡ Built with React 19 & Tailwind CSS 4
-- 📦 Tree-shakeable components
-- 🌙 Dark mode support
-- 📱 Fully responsive
-- ♿ Accessible components
-- 🎭 Storybook documentation
+- 🎨 **Beautiful Neumorphic Design** - Soft, elegant shadows and depth
+- ⚡ **Modern Stack** - React 19, TypeScript, Tailwind CSS 4
+- �️ **C-LI Tool** - Add components with a single command
+- 📦 **Copy, Don't Install** - Own your components, customize freely
+- 🌙 **Dark Mode Ready** - Automatic light/dark theme support
+- 📱 **Fully Responsive** - Mobile-first design approach
+- ♿ **Accessible** - ARIA compliant components
+- 🎭 **Storybook Docs** - Interactive component playground
 
 ## Quick Start
 
