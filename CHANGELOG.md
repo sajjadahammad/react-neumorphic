@@ -1,3 +1,9 @@
+## [1.0.14](https://github.com/sajjadahammad/react-neumorphic/compare/v1.0.13...v1.0.14) (2025-11-13)
+
+### Documentation
+
+* changes in the command ([bcb6e48](https://github.com/sajjadahammad/react-neumorphic/commit/bcb6e482590b407a349e281c090832369a85648d))
+
 ## [1.0.13](https://github.com/sajjadahammad/react-neumorphic/compare/v1.0.12...v1.0.13) (2025-11-12)
 
 ### Bug Fixes
